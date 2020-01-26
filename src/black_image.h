@@ -20,5 +20,6 @@ protected:
     unsigned short height;
     unsigned short width;
 
+    std::vector<float> depth_buffer;
     std::vector<color> frame_buffer;
 };

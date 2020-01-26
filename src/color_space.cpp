@@ -18,6 +18,6 @@ void ColorSpace::DrawScene()
 
 void ColorSpace::SetPixel(unsigned short x, unsigned short y, color color)
 {
-
+	frame_buffer[y * width + x] = color;
 }
 

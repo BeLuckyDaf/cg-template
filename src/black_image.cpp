@@ -10,6 +10,7 @@ BlackImage::BlackImage(unsigned short width, unsigned short height):
     height(height)
 {
     frame_buffer.reserve(width * height);
+    depth_buffer.reserve(width * height);
 }
 
 BlackImage::~BlackImage()
@@ -20,6 +21,7 @@ BlackImage::~BlackImage()
 void BlackImage::Clear()
 {
     frame_buffer.resize(width * height);
+    depth_buffer.resize(width * height, -1000);
 }
 
 int BlackImage::Save(std::string filename) const
