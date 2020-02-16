@@ -16,7 +16,7 @@ workspace "Computer Graphics"
    targetdir ("bin/%{prj.name}/%{cfg.longname}")
    objdir ("obj/%{prj.name}/%{cfg.longname}")
 
---[[
+
 group "01. Black image"
    project "Black image lib"
       kind "StaticLib"
@@ -169,7 +169,6 @@ group "06. Triangle rasterization"
       files { "lib/stb/stb_image.h", "tests/utils.h", "tests/triangle_rasterization_tests.cpp" }
       links "Triangle rasterization lib"
       debugargs { "--benchmark-samples", "25" }
---]]
 	  
 group "07. Z-buffer culling"
    project "Z buffer culling lib"

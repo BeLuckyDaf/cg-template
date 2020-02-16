@@ -20,9 +20,9 @@ void ZCulling::DrawScene()
 
 	float rotangle = 0.0f * M_PI / 180.0;
 	float4x4 rotate{
-		{1, 0, 0, 0},
-		{0, cos(rotangle), sin(rotangle), 0},
-		{0, -sin(rotangle), cos(rotangle), 0},
+		{cos(rotangle), 0, -sin(rotangle), 0},
+		{0, 1, 0, 0},
+		{sin(rotangle), 0, cos(rotangle), 0},
 		{0, 0, 0, 1},
 	};
 

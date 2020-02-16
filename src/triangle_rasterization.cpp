@@ -32,7 +32,7 @@ void TriangleRasterization::DrawScene()
 
 	float3 zaxis = normalize(eye - look_at);
 	float3 xaxis = normalize(cross(up, zaxis));
-	float3 yaxis = cross(xaxis, zaxis);
+	float3 yaxis = cross(zaxis, xaxis);
 
 	float aspect = static_cast<float>(width) / static_cast<float>(height);
 	float fovy = 60.0 * M_PI / 180.0;
@@ -87,8 +87,8 @@ void TriangleRasterization::DrawTriangle(float4 triangle[3])
 
 	for (float x = bb_begin.x; x <= bb_end.x; x++) {
 		for (float y = bb_begin.y; y <= bb_end.y; y++) {
-			float area0 = EdgeFunction(triangle[0].xy(), triangle[1].xy(), float2{ x, y });
-			float area1 = EdgeFunction(triangle[1].xy(), triangle[2].xy(), float2{ x, y });
+			float area1 = EdgeFunction(triangle[0].xy(), triangle[1].xy(), float2{ x, y });
+			float area0 = EdgeFunction(triangle[1].xy(), triangle[2].xy(), float2{ x, y });
 			float area2 = EdgeFunction(triangle[2].xy(), triangle[0].xy(), float2{ x, y });
 			if (area0 >= 0.0 && area1 >= 0.0 && area2 >= 0.0) {
 				float u = area0 / area;
